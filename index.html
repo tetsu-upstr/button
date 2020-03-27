@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>button</title>
+</head>
+<body>
+  <div class="container">
+    <div class="counter">0</div>
+    <button class="btn count-up">+</button>
+    <button class="btn count-down">-</button>
+    <button class="btn reset">reset</button>
+  </div>
+
+  <script>
+  window.onload = function() {
+
+      var counter = document.querySelector('.counter');
+      var countUp = document.querySelector('.count-up');
+      var countDown = document.querySelector('.count-down');
+      var resetValue = document.querySelector('.reset');
+      var count_value = 0;
+
+      // カウントアップ
+      countUp.addEventListener('click',increase);
+      function increase(){
+        count_value++;
+        counter.innerHTML = count_value;
+      };
+
+      // カウントダウン
+      countDown.addEventListener('click',decrease);
+      function decrease(){
+        count_value--;
+        counter.innerHTML = count_value;
+        // マイナスになったら０にする
+        if(count_value < 0) {
+          count_value = 0;
+          counter.innerHTML = count_value;
+        }
+      };
+      
+      //リセットボタン
+      resetValue.addEventListener('click',reset);
+      function reset(){
+        count_value = 0;
+        counter.innerHTML = count_value;
+      };
+      
+  }
+  </script>
+</body>
+
+</html>
