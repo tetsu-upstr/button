@@ -8,29 +8,38 @@
 </head>
 <body>
   <div class="container">
+    <p>カウントアップ</p>
     <div class="counter">0</div>
     <button class="btn count-up">+</button>
     <button class="btn count-down">-</button>
     <button class="btn reset">reset</button>
   </div>
 
+  <div class="container">
+    <p>モーダルウィンドウ</p>
+    <div class="mask display-none"></div>
+    <div class="modal display-none">おめでとうございます！<br><br><div class="btn close">閉じる</div></div>
+    <button class="btn open">開く</button>
+  </div>
+
   <script>
   window.onload = function() {
 
+      // カウンター
       var counter = document.querySelector('.counter');
       var countUp = document.querySelector('.count-up');
       var countDown = document.querySelector('.count-down');
       var resetValue = document.querySelector('.reset');
       var count_value = 0;
 
-      // カウントアップ
+      // カウントアップボタン
       countUp.addEventListener('click',increase);
       function increase(){
         count_value++;
         counter.innerHTML = count_value;
       };
 
-      // カウントダウン
+      // カウントダウンボタン
       countDown.addEventListener('click',decrease);
       function decrease(){
         count_value--;
@@ -42,12 +51,29 @@
         }
       };
       
-      //リセットボタン
+      //カウントのリセットボタン
       resetValue.addEventListener('click',reset);
       function reset(){
         count_value = 0;
         counter.innerHTML = count_value;
       };
+
+      // モーダルウィンドウ
+      var modal = document.querySelector('.modal');
+      var mask = document.querySelector('.mask');
+      var open = document.querySelector('.open');
+      var close = document.querySelector('.close');
+
+      // この書き方でもOK
+      open.addEventListener('click', function(){
+        modal.classList.remove('display-none');
+        mask.classList.remove('display-none');
+      });
+
+      close.addEventListener('click', function(){
+        modal.classList.add('display-none');
+        mask.classList.add('display-none');
+      });
       
   }
   </script>

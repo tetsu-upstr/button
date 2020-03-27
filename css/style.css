@@ -1,5 +1,5 @@
 .container {
-  background-color: lightyellow;
+  background-color: #c9d5ef;
   width: 300px;
   margin: 0 auto;
   text-align: center;
@@ -10,6 +10,7 @@
 }
 
 .btn {
+  cursor: pointer;
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
@@ -24,4 +25,45 @@
   -webkit-transform: translateY(4px);
   transform: translateY(4px);/*下に動く*/
   border-bottom: none;/*線を消す*/
+}
+
+.btn:hover {
+  background: #7897d8;
+}
+
+/* モーダルウィンドウ */
+.modal {
+  background: #fff;
+  color: #555;
+  width: 300px;
+  padding: 40px;
+  border-radius: 4px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: 0.4s;
+  z-index: 2;
+}
+
+/* 背景マスク */
+.mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.display-none {
+  display: none;
+}
+
+/* 閉じるボタン */
+.close {
+  position: relative;
+  
 }
